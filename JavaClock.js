@@ -7,8 +7,11 @@ function getTime() {
   const Minute = date.getMinutes();
   const hour = date.getHours();
   const seconds = date.getSeconds();
-  clockTitle.innerText = `${hour}:${Minute}:${seconds}`;
+  clockTitle.innerText = `${hour < 10 ? `0${hour}` : hour}:${
+    Minute < 10 ? `0${Minute}` : Minute
+  }:${seconds < 10 ? `0${seconds}` : seconds}`;
 }
+// seconds가 10보다 작으면 ?(if) > 0+seconds 추출  아니라면 (:) seconds
 
 function init() {
   getTime();
